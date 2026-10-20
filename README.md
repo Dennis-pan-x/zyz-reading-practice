@@ -33,6 +33,15 @@ git commit -m "备份 2026-10-20 记录；更新网页到 2026-10-07-r2"
 git push
 ```
 
+## 推送失败怎么办
+
+本机全局配置了 `http.https://github.com.proxy = http://127.0.0.1:7897`（Clash）。代理没开时推送会报 `Failed to connect to 127.0.0.1 port 7897`：
+
+- 先打开 Clash Verge（提供 7897 端口），再 `git push`
+- 或者绕过代理直连：`git -c "http.https://github.com.proxy=" push`
+
+本仓库已把该代理项设为空（直连优先）。直连时好时坏，失败就多重试几次或挂上代理。
+
 ## 说明
 
 - 仓库为**公开**，`records/` 中的 JSON 含每次练习的成绩、用时和笔记，不含邮箱、电话等个人信息。
